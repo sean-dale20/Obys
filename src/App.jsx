@@ -1,10 +1,74 @@
+import {useEffect, useState} from "react"
 import Auth from './pages/Auth'
 import './App.css'
+import { supabase } from "./supabaseClient"
 
 function App(){
-  return(
-    <Auth />
-  )
+
+const [session, setSession] = useState(null)
+const [loading, setLoading] = useState(true)
+
+//checks the session
+useEffect(() =>{
+async function checkSession() {
+  try{
+  const {data, error} = await supabase.auth.getSession()
+  
+
+  if(error){
+    console.error("Error checking session:", error.message)
+    setLoading(false)
+    return
+  }
+  setSession(data.session)
+  setLoading(false)
+  }
+  catch(err){
+    console.error("Unexpected error:", err.message)
+    setLoading(false)
+  }
 }
+checkSession()
+
+//checks if there is changes if someone logs in or logs out
+const { data: listener} = supabase.auth.onAuthStateChange((event, session) => {
+  setSession(session)
+})
+
+return () => {
+  listener.subscription.unsubscribe()
+}
+
+
+
+}, [])
+
+  if(loading){
+
+    return (
+      <p> hold for a sec.....</p>
+    )
+    
+  }
+  if(!session) {
+    return (
+    <Auth/>
+  
+)
+  }
+  if(session){
+    return(
+      <div>
+        <p>logged in as {session.user.email}</p>
+        <button onClick = {() => supabase.auth.signOut()}>Log out </button>
+      </div>
+    )
+  }
+}
+
+
+
+
+  
 
 export default App
