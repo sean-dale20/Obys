@@ -2,11 +2,15 @@ import {useEffect, useState} from "react"
 import Auth from './pages/Auth'
 import './App.css'
 import { supabase } from "./supabaseClient"
+import Listings from "./pages/Listings"
+import CreateListingForm from "./pages/CreateListingForm"
+
 
 function App(){
 
 const [session, setSession] = useState(null)
 const [loading, setLoading] = useState(true)
+const [activeTab, setActiveTab] = useState("home")
 
 //checks the session
 useEffect(() =>{
@@ -58,9 +62,30 @@ return () => {
   }
   if(session){
     return(
-      <div>
-        <p>logged in as {session.user.email}</p>
-        <button onClick = {() => supabase.auth.signOut()}>Log out </button>
+      <div id="contents">
+
+      
+
+      <div id="nav-bar">
+      <div className="nav-left">
+        <span className="home" onClick={() => setActiveTab("home")}>Home</span>
+        <span className="post-item" onClick={() => setActiveTab("post-item")}>Post Item</span>
+        <span className="messages" onClick={() => setActiveTab("messages")}>Messages</span>
+        </div>
+
+        <div className="nav-right">
+       <p>{session.user.email}</p>
+      <button onClick = {() => supabase.auth.signOut()}>Log out </button>
+      </div>
+
+      </div>
+     
+      
+       {activeTab === "home" && <Listings/>}
+       {activeTab === "post-item" && <CreateListingForm/>}
+       {activeTab === "messages" && <p> coming soon</p>}
+  
+      
       </div>
     )
   }

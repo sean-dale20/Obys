@@ -1,6 +1,7 @@
 import{ useState, useEffect} from "react"
 import {supabase} from "../supabaseClient"
 
+
 function Listings(){
     const[listings, setListings] = useState([])
     const[images, setImages]= useState([])
@@ -71,19 +72,25 @@ getListingImages()
     return(
         <div>
             <h1>Listings</h1>
+<div className="listing-container">
 
-
+                <div className="grids">
                 {listings.map((listing) => {
                     const image = images.find((img) => img.listing_id === listing.id)
                     return(
-                        <div key={listing.id}>
+                        <div className="listing-grid" key={listing.id}>
                         <p className="listing-title">{listing.title}</p>
-                        <img src={image.images_url} alt={listing.title}/>
-                        <p className="price"> {listing.price}</p>
+                        {image && <img src={image.images_url} alt={listing.title}/>}
+                        <p className="price"> PRICE: ₱{listing.price}</p>
                         <p className="item-description">{listing.description}</p>
+                        <p className="Location">📍{listing.location}</p>
+
                         </div>
                     )
                 })}
+                
+                </div>
+</div>
         </div>
     )
 }
