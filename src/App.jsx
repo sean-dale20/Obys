@@ -4,6 +4,7 @@ import './App.css'
 import { supabase } from "./supabaseClient"
 import Listings from "./pages/Listings"
 import CreateListingForm from "./pages/CreateListingForm"
+import MyListings from "./pages/MyListings"
 
 
 function App(){
@@ -71,6 +72,7 @@ return () => {
         <span className="home" onClick={() => setActiveTab("home")}>Home</span>
         <span className="post-item" onClick={() => setActiveTab("post-item")}>Post Item</span>
         <span className="messages" onClick={() => setActiveTab("messages")}>Messages</span>
+        <span className="myListings" onClick={() => setActiveTab("myListings")}>My Listings</span>
         </div>
 
         <div className="nav-right">
@@ -84,7 +86,7 @@ return () => {
        {activeTab === "home" && <Listings/>}
        {activeTab === "post-item" && <CreateListingForm/>}
        {activeTab === "messages" && <p> coming soon</p>}
-  
+  {activeTab === "myListings" && <MyListings/>}
       
       </div>
     )

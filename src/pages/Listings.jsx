@@ -94,4 +94,4 @@ getListingImages()
         </div>
     )
 }
-export default Listings
+export default Listings;

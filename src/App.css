@@ -9,7 +9,7 @@
 }
 body{
   margin: 0;
-  background: #d6d1d1;
+  background: #c4bfbf;
  
   min-height: 100vh;
 
@@ -108,11 +108,11 @@ border-color: #4a90e2;
   justify-content: space-between;
   align-items: center;
   padding: 14px 24px;
-  background-color: #696965;
+  background-color: #80766c;
 
   border-radius: 16px;
-  border: 1px solid #2c2c2c;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  border: 2px solid #2b2929;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
   
   margin: 20px;
   width: auto;

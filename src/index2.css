@@ -110,3 +110,87 @@
     margin: 0;
     content: "📍";
 }
+
+/* FOR MY LISTING */
+.my-listing{
+    display: flex;
+    flex-direction: column;
+    margin: 135px;
+    gap: 20px;
+    
+    
+    
+
+}
+.my-listing-container{
+    border: solid 1px black;
+    align-items: center;
+    padding: 50px;
+    border-radius: 20px;
+    background-color: #dad6cc;
+    
+    
+}
+.ml-image-container{
+    display: flex;
+    gap: 10px;
+    
+}
+.ml-image{
+   border: solid 1px black;
+   border-radius:5px ;
+    
+    height: 100px;
+    width: 100px;
+    
+
+}
+
+
+.ml-title{
+    font-weight: 800;
+}
+.ml-price{
+    color: #355541;
+}
+.ml-description{}
+.ml-location{}
+.delete-buttton{
+    padding: 10px 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(14, 9, 9);
+    box-shadow: #1e1e1e; 
+}
+.delete-buttton:hover{
+    background-color: rgb(219, 22, 22);
+    color: black;
+    
+}
+
+.edit-button{
+     padding: 10px 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(15, 12, 12);
+    box-shadow: #1e1e1e; 
+}
+.delete-buttton:hover{
+    
+    color: black;
+    
+    
+}
+.buttons-container{
+    display: flex;
+    gap: 10px;
+}
+
+
+/*------------------------------ THE EDIT FORM*/
+
+.ml-edit-form{
+display: flex;
+flex-direction:column;
+}
+
