@@ -2,7 +2,8 @@ import{ useState, useEffect} from "react"
 import {supabase} from "../supabaseClient"
 
 
-function Listings(){
+
+function Listings({onSelectListing}){
     const[listings, setListings] = useState([])
     const[images, setImages]= useState([])
     const [loading, setLoading] = useState(true)
@@ -75,10 +76,16 @@ getListingImages()
 <div className="listing-container">
 
                 <div className="grids">
+                
                 {listings.map((listing) => {
                     const image = images.find((img) => img.listing_id === listing.id)
                     return(
-                        <div className="listing-grid" key={listing.id}>
+                        <div 
+                        //onclick for clicked listing
+                        onClick={() => onSelectListing(listing.id)}
+                        className="listing-grid"
+                        key={listing.id}
+                        >
                         <p className="listing-title">{listing.title}</p>
                         {image && <img src={image.images_url} alt={listing.title}/>}
                         <p className="price"> PRICE: ₱{listing.price}</p>

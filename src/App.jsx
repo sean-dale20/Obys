@@ -5,6 +5,8 @@ import { supabase } from "./supabaseClient"
 import Listings from "./pages/Listings"
 import CreateListingForm from "./pages/CreateListingForm"
 import MyListings from "./pages/MyListings"
+import ClickedListing from "./ClickedListing"
+
 
 
 function App(){
@@ -12,6 +14,7 @@ function App(){
 const [session, setSession] = useState(null)
 const [loading, setLoading] = useState(true)
 const [activeTab, setActiveTab] = useState("home")
+const [selectedListing, setselectedListing] = useState (null);
 
 //checks the session
 useEffect(() =>{
@@ -73,6 +76,7 @@ return () => {
         <span className="post-item" onClick={() => setActiveTab("post-item")}>Post Item</span>
         <span className="messages" onClick={() => setActiveTab("messages")}>Messages</span>
         <span className="myListings" onClick={() => setActiveTab("myListings")}>My Listings</span>
+        
         </div>
 
         <div className="nav-right">
@@ -83,10 +87,23 @@ return () => {
       </div>
      
       
-       {activeTab === "home" && <Listings/>}
+       {activeTab === "home" && (
+        <Listings
+        onSelectListing={(id) => {
+          setselectedListing(id);
+          setActiveTab("ClickedListing");
+        }}
+        />
+       )}
+
+
+
+       
+
        {activeTab === "post-item" && <CreateListingForm/>}
        {activeTab === "messages" && <p> coming soon</p>}
   {activeTab === "myListings" && <MyListings/>}
+  {activeTab === "ClickedListing" && <ClickedListing id={selectedListing}/>}
       
       </div>
     )

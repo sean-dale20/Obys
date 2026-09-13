@@ -153,8 +153,12 @@
 .ml-price{
     color: #355541;
 }
-.ml-description{}
-.ml-location{}
+.ml-description{
+    font-size: 10px;
+}
+.ml-location{
+    font-size: 10px;
+}
 .delete-buttton{
     padding: 10px 19px;
     border-radius: 10px;
