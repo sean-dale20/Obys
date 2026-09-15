@@ -1,15 +1,57 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { supabase } from "./supabaseClient";
 
 
 
-export default function clickedListing ({id}){
+export default function ClickedListing ({id}){
 
     const[loading, setLoading]= useState (true);
-    const[listing, setListing]= useState ([]);
+    const[listing, setListing]= useState (null);
     const[error, setError] = useState(false);
     const[image, setImage] = useState ([])
+    const [profile, setProfile] = useState (null);
+
     
+
+    async function getprofile(sellerId) {
+        try{
+        const { data, error} = await supabase 
+        .from('profiles')
+        .select('full_name, contact_number')
+        .eq('id', sellerId)
+        .single();
+      
+        
+        
+    
+
+if(error){
+    console.error("failed fetching profiles", error.message);
+    return;
+}
+
+setProfile(data);
+
+    }
+    catch(error){
+        console.error("unexpected error", error.message)
+
+    }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     async function getListings(id) {
@@ -18,6 +60,7 @@ try{
         .from('listings')
         .select('*')
      .eq('id', id)
+     .single()
        
         
 
@@ -30,18 +73,24 @@ try{
             return
         }
         setListing(data)
+
+getprofile(data.seller_id)
+
+
         setLoading(false)
+      
 }
     
         catch(errss){
             console.error("there seems to be an unexpected problem", errss.message);
-        
+        setError(true);
+        setLoading(false);
         
         
     }
 }
 
-async function getImages() {
+async function getImages(id) {
     try{
     const{ data, error } = await supabase
     .from('listings_images')
@@ -53,6 +102,7 @@ async function getImages() {
     
 
     setImage(data);
+    
 
 
     
@@ -77,22 +127,50 @@ return;
 
     
 useEffect(() =>{
-    getImages();
+    getImages(id);
     getListings(id);
     
+   
+    
 }, [id])
-return (
-    <div className="clicked-listing">
-    {listing.map((ikot) => (
-    <div className="clicked-listing-container">
-<h2>{ikot.title}</h2>
 
+
+if (loading){
+    return <p>Loading...</p>
+}
+if(error){
+    return <p>Something went wrong loading this listing</p>;
+}
+if(!listing){
+    return <p>Listing now found</p>;
+}
+
+
+
+
+return (
+    
+    <div className="clicked-listing">
+    
+  
+    <div className="clicked-listing-container">
+<h2 className="clicked-listing-title">{listing.title}</h2>
+
+<div className="clicked-listing-image-container">
 {image.map((ikotm) => (
-    <img key={ikotm.id} src={ikotm.images_url} alt={ikot.title}/>
+    <img key={ikotm.id} src={ikotm.images_url} alt={listing.title}/>
     ))}
-<p className="clicked-listing-description">{ikot.description}</p>
-<p className="clicked-listing-price">{ikot.price}</p>
-<p className="clicked-listing-location">{ikot.location}</p>
+    </div>
+<div className="description-container">
+<p className="clicked-listing-description">Description: {listing.description}</p>
+<p className="clicked-listing-price">₱{listing.price}</p>
+<p className="clicked-listing-seller">Seller: {profile?.full_name}</p>
+<p className="clicked-listing-contact">Contact: {profile?.contact_number}</p>
+<p className="clicked-listing-location">📍{listing.location}</p>
+</div>
+</div>
+    
+    
 
     </div>
     
@@ -100,14 +178,7 @@ return (
 
 
 
-
-
-
-
-
-
-))}
-     </div>
+    
 )
 
 

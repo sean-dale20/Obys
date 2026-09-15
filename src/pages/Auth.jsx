@@ -12,6 +12,7 @@ const [fullName, setFullName] = useState('')
 
 const [loading, setLoading] = useState(false)
 const [errorMsg, setErrorMsg] = useState('')
+const [contact, setContact] = useState('')
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -33,7 +34,8 @@ const handleSubmit = async (e) => {
         } else if (data.user){
             const {error: profileError} = await supabase
             .from('profiles')
-            .insert({id: data.user.id, full_name: fullName})
+            .insert({id: data.user.id, full_name: fullName, contact_number: contact        
+            })
 
             if(profileError){
                 setErrorMsg(profileError.message)
@@ -65,6 +67,7 @@ const handleSubmit = async (e) => {
 
 
 {isSignUp &&(
+    <>
     <div>
         <label>Full Name</label>
         <input
@@ -74,7 +77,22 @@ const handleSubmit = async (e) => {
         required
         />
     </div>
+
+<div>
+        <label>Contact</label>
+        <input
+        type='text'
+        value={contact}
+        onChange={(e) => setContact(e.target.value) }
+        required
+        minLength={6}
+        />
+    </div>
+</>
+
+
 )}
+  
 <div>
     <label>Email</label>
     <input type='email' 

@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
-import {getMessages, sendMessage} from '../lib/chat';
+import {getMessages, sendMessage} from './Chat';
 
 
 export default function ChatWindow({ conversation,  currentUserId}){

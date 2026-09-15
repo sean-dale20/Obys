@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserConversations } from "../pages/Chat";
+import { getUserConversations } from "./Chat";
 
 
 export default function ConversationsList({ currentUserId, activeConversationId, onSelect}){

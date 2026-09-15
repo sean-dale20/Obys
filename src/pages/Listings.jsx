@@ -3,10 +3,12 @@ import {supabase} from "../supabaseClient"
 
 
 
+
 function Listings({onSelectListing}){
     const[listings, setListings] = useState([])
     const[images, setImages]= useState([])
     const [loading, setLoading] = useState(true)
+    const [searchTerm, setSearchTerm] = useState("")
 
 // gets the stored data from listing in supabase
     useEffect(() => {
@@ -67,17 +69,38 @@ getListingImages()
 
 
     }, [])
-    
+
+
+    const filteredListings = listings.filter((x) =>
+        x.title.toLowerCase().includes(searchTerm.toLowerCase())
+)
 
 
     return(
         <div>
-            <h1>Listings</h1>
+        <h1>Listings</h1>
+        <div className="search-bar-container">
+        
+            
+            <input
+            type="text"
+            placeholder="🔍 Search listings..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-bar"
+/>
+</div>
+
+
+
+
+
+
 <div className="listing-container">
 
                 <div className="grids">
                 
-                {listings.map((listing) => {
+                {filteredListings.map((listing) => {
                     const image = images.find((img) => img.listing_id === listing.id)
                     return(
                         <div 

@@ -4,6 +4,7 @@ import { supabase } from '../supabaseClient';
 
 
 
+
 export async function getOrCreateConversation(listingId, buyerId, sellerId) {
     const{ data: existing, error: findError } = await supabase
     .from('conversations')
@@ -50,8 +51,8 @@ export async function sendMessage(conversationId, senderId, content) {
     const { data, error} = await supabase 
         .from('messages')
         .insert({
-            conversationId: conversationId,
-            senderId: senderId,
+            conversation_id: conversationId,
+            sender_id: senderId,
             content: content,
         })
         .select()
@@ -63,5 +64,20 @@ export async function sendMessage(conversationId, senderId, content) {
         return data;
 
     };
+    export async function getMessages(conversationId) {
+        const{data, error}= await supabase 
+        .from('messages')
+        .select('*')
+        .eq('conversation_id', conversationId)
+        .order('created_at', { ascending:true});
+
+
+
+        if(error){
+            console.error("There seems to be a problem", error.message)
+        
+        }
+        return data;
+    }
     
     

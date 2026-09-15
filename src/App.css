@@ -9,7 +9,7 @@
 }
 body{
   margin: 0;
-  background: #c4bfbf;
+  background: #2b2b2b;
  
   min-height: 100vh;
 
@@ -25,16 +25,17 @@ body{
   flex-direction: column;
   align-items: center;
 
-  background-color: #1e1e1e;
+  
   border: var(--border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
  
- border: solid 2px;
-
- 
-  padding: 40px  32px;
+  border: solid 2px rgba(255, 255, 255, 0.12);
 
   max-width: 360px;
+  padding: 40px 32px;
+  
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
  
 border-radius: 12px;
 width: 100%;
@@ -44,7 +45,7 @@ margin-top: 25vh;
 
 /* H1 */
 .auth-container h1{
-  color: var(--text-main);
+  color: #f2f2f2;
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 20px;
 }
@@ -67,9 +68,9 @@ margin-top: 25vh;
 
 .auth-container input{
   border-radius: 8px;
-  border: 1px solid #2c2c2c;
-  background-color: #2a2a2a;
-  color: #3b3a3a;
+  border: 1px solid rgba(255,255,255,0.15);
+  background-color: rgba(255,255,255,0.07);
+  color: #f3f0f0;
   padding: 11px 12px;
   font-size: 14px;
   box-sizing: border-box;
@@ -108,14 +109,16 @@ border-color: #4a90e2;
   justify-content: space-between;
   align-items: center;
   padding: 14px 24px;
-  background-color: #80766c;
+  background-color: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
 
   border-radius: 16px;
-  border: 2px solid #2b2929;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
   
   margin: 20px;
   width: auto;
+  
 
   position: sticky;
   top: 20px;
@@ -128,6 +131,10 @@ border-color: #4a90e2;
   gap: 12px;
  
 }
+.email{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+font-weight: 500;
+}
 .nav-left{
   display: flex;
   align-items: center;
@@ -138,8 +145,9 @@ border-color: #4a90e2;
 
 }
 .nav-left span:hover{
-  color: #4a90e2;
+  color: #bfc5cc;
   cursor: pointer;
+  
 }
 #contents pd{
   color: #9a9a9a;
@@ -148,14 +156,16 @@ border-color: #4a90e2;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
 }
 #nav-bar button{
-  background-color: #4a90e2;
+  background-color: #5a626b;
   color: white;
   border: none;
   padding: 6px 22px;
   border-radius: 13px;
   cursor: pointer;
+  font-weight: 500;
+  
 }
 #nav-bar button:hover{
-  background-color: #3a7bc8;
+  background-color: #c92d18;
 }
 

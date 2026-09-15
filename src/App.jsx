@@ -6,6 +6,7 @@ import Listings from "./pages/Listings"
 import CreateListingForm from "./pages/CreateListingForm"
 import MyListings from "./pages/MyListings"
 import ClickedListing from "./ClickedListing"
+import MessagePage from "./Chat/MessagePage"
 
 
 
@@ -80,7 +81,7 @@ return () => {
         </div>
 
         <div className="nav-right">
-       <p>{session.user.email}</p>
+       <p className="email">{session.user.email}</p>
       <button onClick = {() => supabase.auth.signOut()}>Log out </button>
       </div>
 
@@ -101,7 +102,7 @@ return () => {
        
 
        {activeTab === "post-item" && <CreateListingForm/>}
-       {activeTab === "messages" && <p> coming soon</p>}
+       {activeTab === "messages" && <MessagePage/>}
   {activeTab === "myListings" && <MyListings/>}
   {activeTab === "ClickedListing" && <ClickedListing id={selectedListing}/>}
       

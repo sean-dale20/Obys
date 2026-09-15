@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ConversationsList from './ConversationsList';
 import ChatWindow from './ChatWindow';
-import {supabase} from '../lib/supabaseClient';
+import {supabase} from '../supabaseClient';
 
 export default function MessagePage(){
     const [activeConversation, setActiveConversation] = useState(null);
@@ -9,7 +9,7 @@ export default function MessagePage(){
 
 
 
-    useState(() => {
+    useEffect(() => {
         supabase.auth.getUser().then(({data}) => {
             setCurrentUserId(data?.user?.id ?? null);
         });

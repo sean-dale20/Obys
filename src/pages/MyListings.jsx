@@ -20,11 +20,19 @@ function MyListings() {
     async function getMylist() { 
 
 try{
+    const { data: {user}, error: userError} = await supabase.auth.getUser();
+
+
+if(userError || !user){
+    console.error("failed to get logged in user", userError?.message);
+    setLoading(false);
+    return;
+}
+
         const {data, error} = await supabase 
-        
-        
         .from('listings')
-        .select(`*, listings_images (id, images_url) `);
+        .select(`*, listings_images (id, images_url) `)
+        .eq('seller_id', user.id)
         
 
         if(error){
@@ -128,6 +136,9 @@ async function saveEdit(id) {
 
 
 <div className="my-listing">
+{items.length === 0 &&(
+    <p className="no-listing">You currently have no listings yet</p>
+)}
 
             {items.map((item) => (
                 
