@@ -149,6 +149,11 @@ font-weight: 500;
   cursor: pointer;
   
 }
+/*-------------------when a tab is clicked it is highlighted---------------      */
+.nav-left span.active{
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
 #contents pd{
   color: #9a9a9a;
   font-size: 17px;

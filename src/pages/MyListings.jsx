@@ -160,7 +160,7 @@ async function saveEdit(id) {
 
 {editId !== item.id&&(
     <>
-
+<div className="mylistings-details-container">
 
             <p className="ml-title">{item.title}</p>
             <p className="ml-price">₱ {item.price}</p>
@@ -169,6 +169,7 @@ async function saveEdit(id) {
 <div className="buttons-container">
 <button className="delete-buttton" onClick={() => deleteListing(item.id)}>Delete</button>
 <button className="edit-button" onClick={() => editListing(item)}>Edit</button>
+</div>
 </div>
 </>
 )}

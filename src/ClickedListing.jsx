@@ -43,17 +43,6 @@ setProfile(data);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     async function getListings(id) {
 try{
         const {data, error} = await supabase
@@ -154,13 +143,14 @@ return (
     
   
     <div className="clicked-listing-container">
-<h2 className="clicked-listing-title">{listing.title}</h2>
+
 
 <div className="clicked-listing-image-container">
 {image.map((ikotm) => (
     <img key={ikotm.id} src={ikotm.images_url} alt={listing.title}/>
     ))}
     </div>
+    <h2 className="clicked-listing-title">{listing.title}</h2>
 <div className="description-container">
 <p className="clicked-listing-description">Description: {listing.description}</p>
 <p className="clicked-listing-price">₱{listing.price}</p>

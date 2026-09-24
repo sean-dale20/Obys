@@ -24,6 +24,31 @@
     background-color: #1e1e1e;
     
 }
+.listings-heading-container{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    margin-left: 30px;
+
+}
+.listings-heading{
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    color: #f3f2ee;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.listings-count{
+    display: flex;
+    flex-direction: column;
+font-size: 24px;
+
+margin: 0 0 12px 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color: #978686;
+}
 
 
 .title,
@@ -55,11 +80,11 @@
 
 
 .grids{
-    border: 1px solid;
+  
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    background: #1e1e1e;
+   
     border-radius: 8px;
 }
 .listing-grid:hover{
@@ -70,7 +95,7 @@
 }
 .listing-grid{
     background: rgb(47, 49, 47);
-    border: solid 3px bisque;
+    border: solid 1px bisque;
     border-radius: 12px;
     padding: 20px;
     display: flex;
@@ -92,56 +117,126 @@
  font-weight: 600;
  color: #fff;
  margin: 0;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .price{
     font: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #4ade80;
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .item-description{
     font-size: 0.9rem;
-    color: #ccc;
+    margin: 4px 0 6px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #e9e1e1;
     margin: 0;
 }
+
 .Location{
-    font-size: 1.2rem;
+    font-size: 1 rem;
     color: 999;
     margin: 0;
     content: "📍";
 }
+.timeline{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+   
+}
+.location-timeline-row{
+    display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #9a9992;
+}
+.timeline{
+    margin-top: 18px;
+    font-size: 15px;
+}
 
-/* FOR MY LISTING */
+/* ---------------------FOR MY LISTING------------------------------ */
 .my-listing{
     display: flex;
     flex-direction: column;
-    margin: 135px;
+   
+
+   
+    
     gap: 20px;
+    
+margin: 135px auto;
+    width: 900px;
+
+   
+    
     
     
     
 
 }
 .my-listing-container{
-    border: solid 1px black;
+    display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    gap: 30px;
     padding: 50px;
-    border-radius: 20px;
-    background-color: #dad6cc;
+    
+    border: solid 2.5px black;
+ 
+     background-color: #a3a098;
+   
+
+    
+    
+    
+   
+   
+
+
+    
     
     
 }
+
 .ml-image-container{
-    display: flex;
+     display: grid;
+grid-template-columns: repeat(2, 1fr);
+    
     gap: 10px;
     
 }
 .ml-image{
+   
+
    border: solid 1px black;
    border-radius:5px ;
     
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
+    transition: transform 0.5s ease;
+    
+
+}
+.mylistings-details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+     flex: 1;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     
+    
+}
+.ml-image:hover{
+    transform:scale(1.5) ;
+
     
 
 }
@@ -154,10 +249,12 @@
     color: #355541;
 }
 .ml-description{
-    font-size: 10px;
+    font-size: 12px;
+    
 }
 .ml-location{
-    font-size: 10px;
+    font-size: 12px;
+    
 }
 .delete-buttton{
     padding: 10px 19px;
@@ -196,6 +293,10 @@
 .ml-edit-form{
 display: flex;
 flex-direction:column;
+align-items: flex-start;
+gap: 1px;
+flex: 1;
+
 }
 
 /*------------------------------ CLICKED LISTING  */
@@ -213,6 +314,8 @@ height: 800px;
 width: 700px;
 background-color: #1e1e1e;
 padding: 10px;
+box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+box-sizing: border-box;
 
 
      
@@ -229,8 +332,9 @@ padding: 10px;
 .clicked-listing-image-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     
  
     
@@ -241,7 +345,7 @@ padding: 10px;
    object-fit: cover;
 
    border-radius: 10px;
-   border: solid 2px green;
+   
    
   
    
@@ -249,37 +353,44 @@ padding: 10px;
 }
 
 .clicked-listing-title{
-    font-size: 24px;
-    font-weight: 600;
-    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #f3f2ee;
     margin: 0;
-    padding: 22px 24px 0 2px;
+    padding: 0 0 4px 2px;
     letter-spacing: 1px;
 
 }
 .clicked-listing-description{
     color: #ececea;
     font-size: 15px;
-    margin: 20px 20px;
+    line-height: 1.5;
+    margin: 0 2px 20px;
 
 }
 .clicked-listing-price{
     color: #30a35a;
     margin: 2px 20px;
-
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 500;
 }
 .clicked-listing-location{
     color: #9a9992;
     margin-top: 5px;
-    margin-left: 14px;
+    margin-left: 0 2pxpx;
 
 }
 .clicked-listing-seller{
-    margin: 2px 20px;
+    margin: 12px 2px 0;
+    font-size: 13px;
+    color: #ccc;
 
 }
 .clicked-listing-contact{
-    margin: 2px 20px;
+    margin: 4px 2px 0;
+    font-size: 13px;
+    color: #ccc;
 }
 
 /*------------------------------ if there is no listing  */
