@@ -95,8 +95,13 @@ else
 
 
     return(
+
         <div>
+        
+        
         <div className="listings-heading-container">
+        <p className="slogan">Found something? <br/> Sell it. Right around <br /> the corner. </p>
+        
         <h1 className="listings-heading">Listings</h1>
        
         </div>
@@ -112,6 +117,7 @@ else
             className="search-bar"
 />
 <select
+className="sort-location"
 value={selectedLocation}
 onChange={(e) => setSelectedLocation(e.target.value)}
 >
@@ -120,7 +126,6 @@ onChange={(e) => setSelectedLocation(e.target.value)}
     <option value="Angeles">Angeles</option>
     <option value="Balibago">Balibago</option>
     <option value="Dau">Dau</option>
-    <option value="Clark">Clark</option>
     <option value="Mabalacat">Mabalacat</option>
     <option value="San-fernando">San-fernando</option>
 </select>
@@ -132,6 +137,7 @@ onChange={(e) => setSelectedLocation(e.target.value)}
 
 
 <div className="listing-container">
+
 
          <p className="listings-count">
            There are {listings.length} listings available
@@ -148,9 +154,13 @@ onChange={(e) => setSelectedLocation(e.target.value)}
                         className="listing-grid"
                         key={listing.id}
                         >
-                        <p className="listing-title">{listing.title}</p>
+                       
                         {image && <img src={image.images_url} alt={listing.title}/>}
-                        <p className="price"> PRICE: ₱{listing.price}</p>
+                         <div className="listing-details-container">
+                        
+                        <p className="listing-title">{listing.title}</p>
+                         <div className="line">
+                        <p className="price"> ₱{listing.price}</p>
                         <p className="item-description">{listing.description}</p>
                         <div className="location-timeline-row"> 
                         <p className="Location">📍{listing.location}</p>
@@ -161,6 +171,8 @@ onChange={(e) => setSelectedLocation(e.target.value)}
    
 })}</p>
  </div>
+ </div>
+                        </div>
                         </div>
                     )
                 })}

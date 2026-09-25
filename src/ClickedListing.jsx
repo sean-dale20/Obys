@@ -142,25 +142,42 @@ return (
     <div className="clicked-listing">
     
   
-    <div className="clicked-listing-container">
+    
 
-
+<div className="clicked-listing-container-1">
 <div className="clicked-listing-image-container">
 {image.map((ikotm) => (
     <img key={ikotm.id} src={ikotm.images_url} alt={listing.title}/>
     ))}
     </div>
-    <h2 className="clicked-listing-title">{listing.title}</h2>
-<div className="description-container">
+    
+<div className="clicked-listing-description1">
+<h2>Item description</h2>
 <p className="clicked-listing-description">Description: {listing.description}</p>
-<p className="clicked-listing-price">₱{listing.price}</p>
-<p className="clicked-listing-seller">Seller: {profile?.full_name}</p>
+
+<div className="line">
+
+        <p className="clicked-listing-price">₱{listing.price}</p>
 <p className="clicked-listing-contact">Contact: {profile?.contact_number}</p>
+</div>
+    </div>
+    </div>
+
+
+
+
+    <div className="clicked-listing-container-2">
+    <h2 className="clicked-listing-title">{listing.title}</h2>
+
+<div className="clicked-listing-description2">
+<div className="line">
+<p className="clicked-listing-seller">Seller: {profile?.full_name}</p>
 <p className="clicked-listing-location">📍{listing.location}</p>
 </div>
 </div>
-    
-    
+</div>
+
+
 
     </div>
     

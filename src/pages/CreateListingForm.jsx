@@ -159,7 +159,7 @@ return(
 
     <input
     type="text"
-    className="title"
+    className="createListing-title"
     placeholder="Title"
     value={title}
     onChange={(e) => setTitle(e.target.value)}
@@ -167,7 +167,7 @@ return(
 
     <textarea
     type="text"
-    className="description"
+    className="createListing-description"
     placeholder="Description"
     value={description}
     onChange={(e) => setDescription(e.target.value)}
@@ -175,7 +175,7 @@ return(
 
     <input
     type="number"
-    className="price"
+    className="createListing-price"
     placeholder="Price"
     value={price}
     onChange={(e) => setPrice(e.target.value)}
@@ -184,7 +184,7 @@ return(
 
 {/* this is for picking location */}
 <select
-className="location"
+className="createListing-location"
 value={location}
 onChange={(e) => setLocation(e.target.value)}
 >
@@ -201,7 +201,9 @@ onChange={(e) => setLocation(e.target.value)}
 </select>
 
 <input
+
 type="file"
+className="createListing-chooseFile"
 accept="image/*"
 multiple
 onChange={handleImageSelect}
@@ -219,7 +221,7 @@ disabled={images.length >= MAX_IMAGES}
 
     ))}
 </div>
-<button type="submit" disabled={!canSubmit}>Submit Listing</button>
+<button className="createListing-submit" type="submit" disabled={!canSubmit}>Submit Listing</button>
 
 
 

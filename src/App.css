@@ -9,8 +9,8 @@
 }
 body{
   margin: 0;
-  background: #2b2b2b;
- 
+  
+ background: #222221;
   min-height: 100vh;
 
  
@@ -102,7 +102,7 @@ border-color: #4a90e2;
   text-decoration: underline;
   cursor: pointer;
 }
-
+/*  NAV BAR---------------------------           */
 
 #nav-bar{
   display: flex;
@@ -112,18 +112,18 @@ border-color: #4a90e2;
   background-color: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(10px);
 
-  border-radius: 16px;
+
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  
-  margin: 20px;
+  gap: 20px;
+ 
   width: auto;
   
 
   position: sticky;
-  top: 20px;
+ 
 
-  box-sizing: border-box;
+ 
 }
 .nav-right{
   display: flex;
@@ -134,25 +134,44 @@ border-color: #4a90e2;
 .email{
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
 font-weight: 500;
+color: #357dcf;
 }
+.logo{
+  font-family:"Bricolage Grotesque", sans-serif;
+  color: #a05b2d;
+  font-size: 25px;
+  font-weight: 800;
+}
+.logo:hover{
+  color: #a05b2d;
+
+
+}
+
 .nav-left{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 50px;
   font-size: 25px;
-  margin-left: 20px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+  margin-left: 0px;
+  font-family: "Bricolage Grotesque", sans-serif;
+white-space: nowrap;
 }
 .nav-left span:hover{
   color: #bfc5cc;
   cursor: pointer;
-  
 }
+.nav-left-group{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+
 /*-------------------when a tab is clicked it is highlighted---------------      */
 .nav-left span.active{
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  color: var(--text-main);
+  border-bottom: 2px solid var(--text-main);
 }
 #contents pd{
   color: #9a9a9a;
@@ -168,9 +187,19 @@ font-weight: 500;
   border-radius: 13px;
   cursor: pointer;
   font-weight: 500;
+  white-space: nowrap;
   
 }
 #nav-bar button:hover{
   background-color: #c92d18;
 }
 
+.slogan{
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #f3f2ee;
+  margin: 50px 0 24px 14px;
+}

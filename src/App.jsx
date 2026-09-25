@@ -72,12 +72,17 @@ return () => {
       
 
       <div id="nav-bar">
+      <div className="nav-left-group">
+      <span className="logo">obys.</span>
       <div className="nav-left">
+      
+      
         <span className={activeTab === "home" ? "home active" : "home"} onClick={() => setActiveTab("home")}>Home</span>
         <span className={activeTab === "post-item" ? "post-item active" : "post-item"}  onClick={() => setActiveTab("post-item")}>Post Item</span>
         <span className={activeTab === "messages" ? "messages active" : "messages"} onClick={() => setActiveTab("messages")}>Messages</span>
         <span className={activeTab === "myListings" ? "myListings active" : "myListings"} onClick={() => setActiveTab("myListings")}>My Listings</span>
         
+        </div>
         </div>
 
         <div className="nav-right">

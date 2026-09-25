@@ -163,12 +163,14 @@ async function saveEdit(id) {
 <div className="mylistings-details-container">
 
             <p className="ml-title">{item.title}</p>
+            <div className="line">
             <p className="ml-price">₱ {item.price}</p>
             <p className="ml-description">{item.description}</p>
-            <p className="ml-location">{item.location}</p>
+            <p className="ml-location">📍 {item.location}</p>
 <div className="buttons-container">
 <button className="delete-buttton" onClick={() => deleteListing(item.id)}>Delete</button>
 <button className="edit-button" onClick={() => editListing(item)}>Edit</button>
+</div>
 </div>
 </div>
 </>
@@ -177,14 +179,16 @@ async function saveEdit(id) {
 
 
 {editId === item.id ? (
+    
     <div className="ml-edit-form">
-    <p>title</p>
+    <h2>Edit form</h2>
+    <p>Title</p>
     <input 
     type="text"
     name="title"
     value={editForm.title}
     onChange={handleEditChange}
-    className="ml-edit-input"
+    className="ml-edit-title"
     />
 
 <p>Price</p>
@@ -193,7 +197,7 @@ type="number"
 name="price"
 value={editForm.price}
 onChange={handleEditChange}
-className="ml-edit-input"
+className="ml-edit-price"
 />
 
 <p>description</p>
@@ -201,7 +205,7 @@ className="ml-edit-input"
 name="description"
 value={editForm.description}
 onChange={handleEditChange}
-className="ml-edit-textarea"
+className="ml-edit-description"
 />
 
 <p>location</p>
@@ -210,12 +214,12 @@ type="text"
 name="location"
 value={editForm.location}
 onChange={handleEditChange}
-className="ml-edit-input"
+className="ml-edit-location"
 />
 
 
 
-<div className="ml-edit-actions">
+<div className="ml-edit-buttons">
 <button onClick={() => saveEdit(item.id)}>Save</button>
 <button onClick={cancelEditing}>Cancel</button>
 </div>
