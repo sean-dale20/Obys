@@ -2,6 +2,8 @@ import{ useState, useEffect} from "react"
 import {supabase} from "../supabaseClient"
 import "../App.css";
 
+import { Camera, Tag, MessageSquare } from "lucide-react";
+
 
 
 
@@ -11,6 +13,7 @@ function Listings({onSelectListing}){
     const [loading, setLoading] = useState(true)
     const [searchTerm, setSearchTerm] = useState("")
     const [selectedLocation, setSelectedLocation] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
 
 // gets the stored data from listing in supabase
     useEffect(() => {
@@ -172,12 +175,44 @@ onChange={(e) => setSelectedLocation(e.target.value)}
 })}</p>
  </div>
  </div>
+
+
+
+
                         </div>
+                        
                         </div>
                     )
                 })}
                 
                 </div>
+</div>
+<div className="slogan-container">
+    <h2>Selling takes a minute</h2>
+
+    <div className="three-container">
+        <div className="slogan-snap">
+        <span className="slogan-camera-icon">
+                <Camera size={26}/>
+            </span>
+            <h2>1. Snap a photo </h2>
+             <p>Good light and a clean background help your item stand out.</p>
+        </div>
+        <div className="slogan-set">
+        <span className="slogan-camera-icon">
+                <Tag size={26}/>
+            </span>
+            <h2>2. Set your price </h2>
+           <p>Add a short description, the condition and where to meet.</p>
+        </div>
+        <div className="slogan-chat">
+        <span className="slogan-camera-icon">
+                <MessageSquare size={26}/>
+            </span>
+            <h2>3. Chat and meet up  </h2>
+            <p>With just a few message, turn your unused item into cash. </p>
+        </div>
+    </div>
 </div>
         </div>
     )

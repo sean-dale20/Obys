@@ -203,3 +203,103 @@ white-space: nowrap;
   color: #f3f2ee;
   margin: 50px 0 24px 14px;
 }
+
+/* ---------------------SLOGAN------------------------------ */
+/* PARENT */
+.slogan-container h2{
+  font-size: 50px;
+  margin-bottom: 50px;
+  margin-top: 0;
+
+  letter-spacing: -2px;
+ 
+}
+.slogan-container{
+  border: 1px solid rgba(255 , 255, 255, 0.08);
+  color: #f3f2ee;
+  max-width: 1400px;
+ background-color: #2a2a28;
+  border-radius: 19px;
+
+
+  margin: 40px auto;
+  font-family: "bricolage grotesque", sans-serif;
+  padding: 32px;
+  padding-bottom: 62px;
+  margin-bottom: 200px;
+
+}
+/* SEMI-PARENT */
+
+.three-container h2{
+  
+  font-size: 34px;
+ line-height: 25px;
+  letter-spacing: -2px;
+margin-left: 15px;
+margin-bottom: 0;
+margin-top: 14px;
+}
+.three-container p{
+  
+  font-size: 14px;
+ line-height: 25px;
+  letter-spacing: 2px;
+margin-left: 15px;
+margin-bottom: 0;
+color: #8f959c;
+}
+.three-container{
+  display: flex;
+  
+  flex-wrap: nowrap; 
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+ 
+}
+/* CHILDREN */
+.slogan-snap{
+ 
+
+  width: 400px;
+  height: 200px;
+    padding: 20px;   
+ border-radius: 12px;
+ background-color: #222221;
+ border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.slogan-set{
+
+
+  width: 400px;
+   height: 200px;
+     padding: 20px;   
+ border-radius: 12px;
+  background-color: #222221;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.slogan-chat{
+ 
+
+
+  width: 400px;
+   height: 200px;
+     padding: 20px;   
+      border-radius: 12px;
+       background-color: #222221;
+       border: 1px solid rgba(255, 255, 255, 0.06);
+
+}
+.three-container span{
+  border: 1px solid white;
+  padding: 10px;
+  margin-left: 5px;
+
+  background-color: rgba(160, 91, 45, 0.15);
+  color: #c97a45;
+  border: none;
+
+
+  display: inline-flex;
+}

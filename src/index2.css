@@ -66,8 +66,8 @@
 .createListing-location{
     font-family: "Bricolage Grotesque", sans-serif;
      font-weight: 500;
-     color: #e7e6df;
-     background-color: transparent;
+     color: #eeecec;
+     background-color: #1b1a1a;
      border: 1px solid rgba(255, 255, 255, 0.2);
      border-radius: 3px;
      width: 405px;
@@ -217,7 +217,7 @@ color: #a19797;
     gap: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 
-    transition: transform 0.55s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.85s ease, box-shadow 0.45s ease;
 
 
      

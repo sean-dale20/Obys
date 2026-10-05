@@ -6,7 +6,7 @@ import Listings from "./pages/Listings"
 import CreateListingForm from "./pages/CreateListingForm"
 import MyListings from "./pages/MyListings"
 import ClickedListing from "./ClickedListing"
-import MessagePage from "./Chat/MessagePage"
+
 
 
 
