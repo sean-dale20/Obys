@@ -1,5 +1,6 @@
 import {  useEffect, useState } from "react";
 import { supabase } from "./supabaseClient";
+import startConversation from "./Chat/startConversation";
 
 
 
@@ -10,6 +11,7 @@ export default function ClickedListing ({id}){
     const[error, setError] = useState(false);
     const[image, setImage] = useState ([])
     const [profile, setProfile] = useState (null);
+    const [currentUserId, setCurrentUserId] = useState(null);
 
     
 
@@ -106,18 +108,30 @@ setLoading(false);
 return;
 
 
-
-
 }
 
 }
 
+async function getCurrentUser() {
+    const {data, error} = await supabase.auth.getUser();
+
+    if(error){
+        console.error("failed getting user", error.message);
+        return;
+    }
+    setCurrentUserId(data.user.id);
+
+
+
+
+}
 
 
     
 useEffect(() =>{
     getImages(id);
     getListings(id);
+    getCurrentUser();
     
    
     
@@ -173,6 +187,10 @@ return (
 <div className="line">
 <p className="clicked-listing-seller">Seller: {profile?.full_name}</p>
 <p className="clicked-listing-location">📍{listing.location}</p>
+{currentUserId !== listing.seller_id ?
+<button className="chat-seller" onClick={() => startConversation(listing)}>Chat seller</button>
+: null
+}
 </div>
 </div>
 </div>

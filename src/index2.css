@@ -188,6 +188,10 @@ color: #a19797;
 /* ...PARENT.. */
 .listing-container{
     padding: 24px;
+    width: fit-content;
+   
+    margin: 50px auto;
+    box-sizing: border-box;
     
    
 }
@@ -739,6 +743,36 @@ background-color: #0b0b0b;
     background: #2b2b2b;
 
     cursor: pointer;
+}
+/*------------------------------ page-selector  */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 32px 0;
+    
+}
+.pagination p{
+ 
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    
+}
+.pagination-btn{
+    background-color: transparent;
+    color: #f3f2ee;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.pagination-btn:disabled{
+    opacity: 0.35;
+    cursor: not-allowed;
 }
 
 

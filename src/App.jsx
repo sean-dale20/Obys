@@ -6,6 +6,7 @@ import Listings from "./pages/Listings"
 import CreateListingForm from "./pages/CreateListingForm"
 import MyListings from "./pages/MyListings"
 import ClickedListing from "./ClickedListing"
+import MessagePage from "./pages/MessagePage"
 
 
 
@@ -20,6 +21,7 @@ const [selectedListing, setselectedListing] = useState (null);
 //checks the session
 useEffect(() =>{
 async function checkSession() {
+  
   try{
   const {data, error} = await supabase.auth.getSession()
   

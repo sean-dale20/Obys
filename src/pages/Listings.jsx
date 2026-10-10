@@ -5,7 +5,7 @@ import "../App.css";
 import { Camera, Tag, MessageSquare } from "lucide-react";
 
 
-
+const LISTINGS_PER_PAGE = 9;
 
 function Listings({onSelectListing}){
     const[listings, setListings] = useState([])
@@ -97,13 +97,23 @@ else
 })
 
 
+// THE 9
+const startIndex = (currentPage - 1) * LISTINGS_PER_PAGE;
+
+
+const pagedListings = filteredListings.slice(startIndex, startIndex + LISTINGS_PER_PAGE);
+
+
+const totalPages = Math.ceil(filteredListings.length / LISTINGS_PER_PAGE );
+// THE 9
+
     return(
 
         <div>
         
         
         <div className="listings-heading-container">
-        <p className="slogan">Found something? <br/> Sell it. Right around <br /> the corner. </p>
+        <p className="slogan">"Found something? <br/> Sell it. Right around <br /> the corner." </p>
         
         <h1 className="listings-heading">Listings</h1>
        
@@ -116,13 +126,18 @@ else
             type="text"
             placeholder="🔍 Search listings..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+                setSearchTerm(e.target.value)
+                setCurrentPage(1)
+            }}
             className="search-bar"
 />
 <select
 className="sort-location"
 value={selectedLocation}
-onChange={(e) => setSelectedLocation(e.target.value)}
+onChange={(e) => {setSelectedLocation(e.target.value)
+setCurrentPage(1)
+}}
 >
     <option  value="">Sort Location</option>
     <option value="Clark">Clark</option>
@@ -148,7 +163,7 @@ onChange={(e) => setSelectedLocation(e.target.value)}
 
                 <div className="grids">
                 
-                {filteredListings.map((listing) => {
+                {pagedListings.map((listing) => {
                     const image = images.find((img) => img.listing_id === listing.id)
                     return(
                         <div 
@@ -174,6 +189,7 @@ onChange={(e) => setSelectedLocation(e.target.value)}
    
 })}</p>
  </div>
+ 
  </div>
 
 
@@ -184,8 +200,28 @@ onChange={(e) => setSelectedLocation(e.target.value)}
                         </div>
                     )
                 })}
-                
+              
                 </div>
+                <div className="pagination">
+                <button
+                className="pagination-btn"
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                >
+                Previous
+
+                </button>
+                    <p className="pagination-info">Page {currentPage} of {totalPages}</p>
+                
+                <button
+                className="pagination-btn"
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                >
+                    Next
+                </button>
+                </div>
+
 </div>
 <div className="slogan-container">
     <h2>Selling takes a minute</h2>
