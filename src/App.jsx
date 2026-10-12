@@ -80,7 +80,7 @@ return () => {
       
       
         <span className={activeTab === "home" ? "home active" : "home"} onClick={() => setActiveTab("home")}>Home</span>
-        <span className={activeTab === "post-item" ? "post-item active" : "post-item"}  onClick={() => setActiveTab("post-item")}>Post Item</span>
+        
         <span className={activeTab === "messages" ? "messages active" : "messages"} onClick={() => setActiveTab("messages")}>Messages</span>
         <span className={activeTab === "myListings" ? "myListings active" : "myListings"} onClick={() => setActiveTab("myListings")}>My Listings</span>
         
@@ -88,6 +88,7 @@ return () => {
         </div>
 
         <div className="nav-right">
+        <span className="post-item"   onClick={() => setActiveTab("post-item")}>+ Post Item</span>
        <p className="email">{session.user.email}</p>
       <button onClick = {() => supabase.auth.signOut()}>Log out </button>
       </div>

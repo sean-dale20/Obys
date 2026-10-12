@@ -157,6 +157,26 @@ color: #357dcf;
   font-family: "Bricolage Grotesque", sans-serif;
 white-space: nowrap;
 }
+.post-item{
+  display: flex;
+
+  border: 1px solid orange;
+  cursor: pointer;
+  border-radius: 19px;
+  padding: 8px;
+
+  font-size: 18px;
+  margin-right:10px ;
+  text-align: center;
+  justify-content: center;
+
+  white-space: nowrap;
+background: #ce6636;
+color: #000000;
+ font-family: "Bricolage Grotesque", sans-serif;
+
+  
+}
 .nav-left span:hover{
   color: #bfc5cc;
   cursor: pointer;
@@ -302,4 +322,59 @@ color: #8f959c;
 
 
   display: inline-flex;
+}
+
+@media (max-width:768px){
+  #nav-bar{
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 8px;
+  }
+  .nav-left-group{
+    display: contents;
+  }
+  .logo{ order: 1;}
+  .nav-right{order:2}
+  .nav-left{
+    order: 3;
+    width: 100%;
+    gap: 20px;
+    font-size: 16px;
+    overflow-x: auto;
+  }
+  .email{
+    display: none ;
+  }
+
+  /*-----SLOGAN------------*/
+  .three-container{
+    flex-direction: column;
+  }
+  .three-container h2{
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+  .three-container p{
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+  }
+  .slogan{
+    font-size: 40px;
+    margin: 30px 0 16px 14px;
+  }
+  .slogan-container{
+    margin: 20px 12px 80px;
+    padding: 20px;
+  }
+  .slogan-container h2{
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+  .slogan-snap,
+  .slogan-set,
+  .slogan-chat{
+    width: auto;
+    height: auto;
+  }
 }

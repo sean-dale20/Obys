@@ -145,7 +145,7 @@ setCurrentPage(1)
     <option value="Balibago">Balibago</option>
     <option value="Dau">Dau</option>
     <option value="Mabalacat">Mabalacat</option>
-    <option value="San-fernando">San-fernando</option>
+    <option value="San Fernando">San-Fernando</option>
 </select>
 </div>
 
@@ -158,7 +158,7 @@ setCurrentPage(1)
 
 
          <p className="listings-count">
-           There are {listings.length} listings available
+           There are {filteredListings.length} listings available
         </p>
 
                 <div className="grids">

@@ -87,11 +87,11 @@ for(let i = 0; i < images.length; i++){
 
 
     uploadedUrls.push(urlResult.data.publicUrl);
-    setSubmitting(false);
+ 
 }
 
 console.log("All uploaded URLs:", uploadedUrls);
-setSubmitting(false);
+
 
 
 
@@ -138,7 +138,13 @@ const {data: {user}} = await supabase.auth.getUser();
 
 
     }
-
+    setTitle("");              // empty the title box
+    setDescription("");        // empty the description box
+    setPrice("");              // empty the price box
+    setLocation("");           // reset the location dropdown
+    setImages([]);             // remove the selected photos
+    setPreviews([]);           // remove the photo thumbnails
+//after it gets empty the submit will get disabled
     setSubmitting(false);
 }
     
@@ -221,7 +227,10 @@ disabled={images.length >= MAX_IMAGES}
 
     ))}
 </div>
-<button className="createListing-submit" type="submit" disabled={!canSubmit}>Submit Listing</button>
+
+
+
+<button className="createListing-submit" type="submit" disabled={!canSubmit || submitting}>{submitting ? "Posting..." : "Submit Listing"}</button>
 
 
 
