@@ -142,7 +142,7 @@ useEffect(() => {
 
 ///////////////////////////////////////////////////////
     return(
-        <div className="message-page">
+        <div className={selectedConvo ? "message-page chat-open" : "message-page"}>
             <h2>Messages</h2>
      
 
@@ -157,11 +157,15 @@ useEffect(() => {
         ))}
  {selectedConvo ? 
         <div className="chat">
-
-
-
+<div className="chat-title-container">
+<button className="back-btn" onClick={() => setSelectedConvo(null)}>
+<i className="ti ti-arrow-left"></i>
+</button>
+<p className="chat-title">{selectedConvo.listings.title}</p>
+</div>
         <div className="message-list" ref={messageListRef}>
         {messages.map((msg) =>(
+            
             <div key={msg.id} 
             className={msg.sender_id === currentUserId ? "message-item mine" : "message-item"}  >  
             
@@ -194,7 +198,14 @@ useEffect(() => {
            </div>
      
 </div>
-  : null}
+  : 
+  <div className="no-convo-selected">
+  <i className="ti ti-message-circle no-convo-icon"></i>
+  <p >Click a conversation</p>
+  <p>your messages appear here</p>
+  
+  </div>
+  }
    </div>
   
         

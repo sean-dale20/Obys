@@ -10,6 +10,23 @@
 
 
 }
+.chat-title-container{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-bottom: 1px solid #474545;
+}
+.chat-title{
+    margin-left:10px ;
+    font-size: 18px;
+    color: #f2f2f2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.back-btn{
+    display: none;
+}
 .message-page h2{
     margin: 24px 0 18px;
     font-size: 26px;
@@ -232,4 +249,83 @@ cursor: pointer;
 
 .message-list::-webkit-scrollbar-thumb:hover{
     background: #977768;                        /* lighter when you hover it (matches your button hover) */
+}
+
+.no-convo-selected p{
+    font-size: 15px;
+}
+.no-convo-selected{
+  
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+   
+
+     font-family: "Bricolage Grotesque", sans-serif;
+     font-weight: 500;
+     font-size: 15px;
+
+    white-space: nowrap;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    
+}
+.no-convo-icon{
+    font-size: 75px;
+    padding: 15px;
+    border: 2px solid #b5562b;
+border-radius: 22px;
+background-color: #a55c3a;
+
+margin-bottom: 1px;
+
+}
+.no-convo-selected :nth-child(3){
+    color: #696262;
+    font-size: 14px;
+    margin-top: -10px;
+}
+@media (max-width:768px){
+  /*-----CONVERSATION PAGE------------*/
+  .message-page{
+    height: auto;
+    padding: 0 12px 20px;
+  }
+  .conversation-item{
+    width: 100%;
+  }
+  .chat,
+  .no-convo-selected{
+    position: static;
+    height: 70vh;
+    margin-top: 12px;
+  }
+  .input-send-container input{
+    width: 100%;
+  }
+   .message-item{
+    max-width: 80%;
+  }
+
+
+
+  .message-page.chat-open .conversation-item,
+  .message-page.chat-open h2{
+    display: none;
+  }
+  .no-convo-selected{
+    display: none;
+  }
+  .back-btn{
+    display: flex;
+    background: none;
+    color: #f2f2f2;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
 }

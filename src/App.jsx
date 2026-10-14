@@ -7,6 +7,7 @@ import CreateListingForm from "./pages/CreateListingForm"
 import MyListings from "./pages/MyListings"
 import ClickedListing from "./ClickedListing"
 import MessagePage from "./pages/MessagePage"
+import { LogOut } from "lucide-react";     // add at the top of App.jsx
 
 
 
@@ -90,7 +91,9 @@ return () => {
         <div className="nav-right">
         <span className="post-item"   onClick={() => setActiveTab("post-item")}>+ Post Item</span>
        <p className="email">{session.user.email}</p>
-      <button onClick = {() => supabase.auth.signOut()}>Log out </button>
+      <button onClick = {() => supabase.auth.signOut()}>
+      <LogOut size={16}/>
+      Log out </button>
       </div>
 
       </div>
@@ -112,7 +115,7 @@ return () => {
        {activeTab === "post-item" && <CreateListingForm/>}
        {activeTab === "messages" && <MessagePage/>}
   {activeTab === "myListings" && <MyListings/>}
-  {activeTab === "ClickedListing" && <ClickedListing id={selectedListing}/>}
+  {activeTab === "ClickedListing" && <ClickedListing id={selectedListing} onOpenChat={() => setActiveTab("messages")}/>}
       
       </div>
     )
