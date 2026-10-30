@@ -60,6 +60,7 @@ const handleSubmit = async (e) => {
 // STYLING
     return(
         <div className='auth-container'>
+        <span className='auth-logo'>obys</span>
             <h1>{isSignUp ? 'Sign Up' : 'Log In'}</h1>
 
             <form onSubmit={handleSubmit}>
